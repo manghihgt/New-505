@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz Challenge - ลำดับและอนุกรมเลขคณิต</title>
+    <meta name="description" content="เกมคณิตศาสตร์ออนไลน์สไตล์ Kahoot! - ลุยโจทย์ลำดับและอนุกรมเลขคณิตแบบเรียลไทม์">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Prompt:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ==================== HOME SCREEN ==================== -->
+        <section id="screen-home" class="screen active">
+            <div class="bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            <div class="home-content">
+                <div class="logo-area">
+                    <div class="logo-icon">🧮</div>
+                    <h1 class="logo">Math Quiz<br>Challenge</h1>
+                    <p class="tagline">ลำดับเลขคณิต & อนุกรมเลขคณิต</p>
+                </div>
+                <div class="glass-card join-form">
+                    <input type="text" id="input-pin" class="input-field pin-input" placeholder="Game PIN" maxlength="4"
+                        inputmode="numeric">
+                    <input type="text" id="input-nickname" class="input-field" placeholder="Nickname">
+                    <button id="btn-join" class="btn btn-accent btn-lg">OK, Go!</button>
+                </div>
+                <button id="btn-create-room" class="btn-ghost">✨ หรือสร้างห้องใหม่เพื่อเป็นโฮสต์</button>
+            </div>
+        </section>
+
+        <!-- ==================== LOBBY SCREEN ==================== -->
+        <section id="screen-lobby" class="screen">
+            <div class="lobby-top">
+                <div class="glass-card pin-card">
+                    <span class="pin-label">Game PIN:</span>
+                    <h2 id="lobby-pin" class="pin-number">----</h2>
+                </div>
+                <div id="host-start-area" class="hidden">
+                    <button id="btn-start-game" class="btn btn-accent btn-lg pulse-anim">▶ START</button>
+                </div>
+            </div>
+            <div class="lobby-center">
+                <div class="waiting-badge">
+                    <span class="dot-loader"></span>
+                    <span>Waiting for players...</span>
+                </div>
+                <div class="player-count-badge">
+                    <span>👥</span>
+                    <span id="lobby-player-count">0</span>
+                    <span>Players</span>
+                </div>
+                <div id="lobby-players" class="players-flex"></div>
+            </div>
+        </section>
+
+        <!-- ==================== QUESTION SCREEN ==================== -->
+        <section id="screen-question" class="screen">
+            <div class="q-header">
+                <div class="timer-box">
+                    <svg class="timer-svg" viewBox="0 0 100 100">
+                        <circle class="timer-bg" cx="50" cy="50" r="45" />
+                        <circle id="timer-ring" class="timer-fg" cx="50" cy="50" r="45" />
+                    </svg>
+                    <span id="timer-text" class="timer-text">30</span>
+                </div>
+                <div class="q-text-area">
+                    <div class="q-progress" id="q-progress">ข้อ 1/10</div>
+                    <h2 id="q-text" class="q-text">Loading...</h2>
+                </div>
+                <div class="answers-counter">
+                    <span class="ac-label">Answers</span>
+                    <span id="ac-count" class="ac-num">0</span>
+                </div>
+            </div>
+
+            <div id="formula-bar" class="formula-bar glass-card">
+                <span class="formula-icon">📐</span>
+                <div>
+                    <p class="formula-title">สูตรที่เกี่ยวข้อง</p>
+                    <p id="formula-text" class="formula-content">aₙ = a₁ + (n-1)d</p>
+                </div>
+            </div>
+
+            <div id="options-grid" class="options-grid">
+                <!-- Options injected by JS -->
+            </div>
+
+            <div class="q-footer">
+                <span>MATH CHALLENGE</span>
+                <span id="q-footer-pin">PIN: ----</span>
+            </div>
+        </section>
+
+        <!-- ==================== HOST WAITING FOR ANSWERS SCREEN ==================== -->
+        <section id="screen-host-wait" class="screen">
+            <div class="host-wait-content">
+                <div class="timer-box timer-box-lg">
+                    <svg class="timer-svg" viewBox="0 0 100 100">
+                        <circle class="timer-bg" cx="50" cy="50" r="45" />
+                        <circle id="host-timer-ring" class="timer-fg" cx="50" cy="50" r="45" />
+                    </svg>
+                    <span id="host-timer-text" class="timer-text">30</span>
+                </div>
+                <h2 id="host-q-text" class="host-question">Loading...</h2>
+                <div class="host-options-display" id="host-options-display"></div>
+                <div class="host-stats">
+                    <div class="stat-box glass-card">
+                        <span class="stat-num" id="host-answers">0</span>
+                        <span class="stat-label">Answers</span>
+                    </div>
+                    <div class="stat-box glass-card">
+                        <span class="stat-num" id="host-total-players">0</span>
+                        <span class="stat-label">Players</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PLAYER RESULT SCREEN ==================== -->
+        <section id="screen-result" class="screen">
+            <div id="result-box" class="result-box">
+                <!-- Injected: correct / wrong -->
+            </div>
+        </section>
+
+        <!-- ==================== LEADERBOARD SCREEN ==================== -->
+        <section id="screen-leaderboard" class="screen">
+            <h2 class="section-title">🏆 Leaderboard</h2>
+            <div id="lb-list" class="lb-list"></div>
+            <div id="lb-host-controls" class="hidden">
+                <button id="btn-next-q" class="btn btn-accent btn-lg">NEXT ➜</button>
+            </div>
+        </section>
+
+        <!-- ==================== GAME OVER SCREEN ==================== -->
+        <section id="screen-gameover" class="screen">
+            <div class="gameover-content">
+                <div class="confetti-area" id="confetti-area"></div>
+                <div class="trophy-anim">🏆</div>
+                <h1 class="logo gameover-title">GAME OVER</h1>
+                <div id="podium" class="podium"></div>
+                <button onclick="location.reload()" class="btn btn-accent btn-lg">🔄 Play Again</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Firebase SDK (compat for simplicity) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
