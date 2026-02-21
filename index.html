@@ -291,29 +291,48 @@
             </div>
         </section>
 
-        <!-- ==================== HOST WAITING ==================== -->
-        <section id="screen-host-wait" class="screen">
-            <div class="host-wait-content">
-                <div class="timer-box timer-box-lg">
-                    <svg class="timer-svg" viewBox="0 0 100 100">
-                        <circle class="timer-bg" cx="50" cy="50" r="45" />
-                        <circle id="host-timer-ring" class="timer-fg" cx="50" cy="50" r="45" />
-                    </svg>
-                    <span id="host-timer-text" class="timer-text">30</span>
+        <!-- ==================== HOST WAITING (KAHOOT LAYOUT) ==================== -->
+        <section id="screen-host-wait" class="screen host-screen-fullpage">
+            <!-- Top Row: Timer | Question | Answers -->
+            <div class="host-top-row">
+                <div class="host-side-badge">
+                    <div class="timer-box timer-box-host">
+                        <svg class="timer-svg" viewBox="0 0 100 100">
+                            <circle class="timer-bg" cx="50" cy="50" r="45" />
+                            <circle id="host-timer-ring" class="timer-fg" cx="50" cy="50" r="45" />
+                        </svg>
+                        <span id="host-timer-text" class="timer-text">30</span>
+                    </div>
                 </div>
-                <h2 id="host-q-text" class="host-question">Loading...</h2>
-                <div class="host-options-display" id="host-options-display"></div>
-                <div class="host-stats">
-                    <div class="stat-box glass-card">
+
+                <div class="host-q-center">
+                    <div class="host-q-box glass-card">
+                        <div class="host-q-num" id="host-q-num">ข้อ 1/10</div>
+                        <h2 id="host-q-text" class="host-question">Loading...</h2>
+                    </div>
+                    <div id="host-formula-bar" class="formula-bar glass-card" style="margin-top:10px;">
+                        <span class="formula-icon">📐</span>
+                        <div>
+                            <p class="formula-title">สูตรที่เกี่ยวข้อง</p>
+                            <p id="host-formula-text" class="formula-content">aₙ = a₁ + (n-1)d</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="host-side-badge">
+                    <div class="host-answer-badge glass-card">
                         <span class="stat-num" id="host-answers">0</span>
                         <span class="stat-label">Answers</span>
                     </div>
-                    <div class="stat-box glass-card">
+                    <div class="host-answer-badge glass-card" style="margin-top:8px;">
                         <span class="stat-num" id="host-total-players">0</span>
                         <span class="stat-label">Players</span>
                     </div>
                 </div>
             </div>
+
+            <!-- Bottom: BIG answer buttons (2x2 grid like Kahoot) -->
+            <div class="host-options-grid" id="host-options-display"></div>
         </section>
 
         <!-- ==================== PLAYER RESULT ==================== -->

@@ -226,13 +226,16 @@ document.getElementById('btn-start-game').addEventListener('click', async () => 
 function showHostQuestion(data) {
     const q = QUESTIONS[data.qIndex];
     document.getElementById('host-q-text').textContent = q.q;
+    document.getElementById('host-q-num').textContent = 'ข้อ ' + (data.qIndex + 1) + '/' + QUESTIONS.length;
+    document.getElementById('host-formula-text').textContent = q.formula;
+
     const optsArea = document.getElementById('host-options-display');
     optsArea.innerHTML = '';
     q.opts.forEach((opt, i) => {
-        const chip = document.createElement('div');
-        chip.className = 'host-opt-chip ' + COLORS[i];
-        chip.textContent = SHAPES[i] + ' ' + opt;
-        optsArea.appendChild(chip);
+        const btn = document.createElement('div');
+        btn.className = 'host-opt-big ' + COLORS[i];
+        btn.innerHTML = '<span class="opt-shape">' + SHAPES[i] + '</span><span class="opt-text">' + opt + '</span>';
+        optsArea.appendChild(btn);
     });
     document.getElementById('host-answers').textContent = data.answersCount || 0;
     document.getElementById('host-total-players').textContent = Object.keys(data.players || {}).length;
