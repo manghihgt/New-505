@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Prompt:wght@300;400;500;600;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -31,6 +32,7 @@
                     <span class="brand-icon">🧮</span>
                     <span class="brand-name">MathQuiz</span>
                 </div>
+
             </header>
 
             <!-- Tab Navigation -->
@@ -50,6 +52,10 @@
                 <button class="tab-btn" data-tab="tab-learn">
                     <span class="tab-icon">📚</span>
                     <span class="tab-label">เรียนรู้</span>
+                </button>
+                <button class="tab-btn" data-tab="tab-about">
+                    <span class="tab-icon">👥</span>
+                    <span class="tab-label">เกี่ยวกับเรา</span>
                 </button>
             </nav>
 
@@ -120,32 +126,38 @@
                         <div class="theme-grid">
                             <button class="theme-card active" data-theme="purple">
                                 <div class="theme-preview"
-                                    style="background: linear-gradient(135deg, #46178f, #1e0a3c);"></div>
+                                    style="background: linear-gradient(135deg, #46178f, #1e0a3c);">
+                                </div>
                                 <span class="theme-name">Purple Classic</span>
                             </button>
                             <button class="theme-card" data-theme="ocean">
                                 <div class="theme-preview"
-                                    style="background: linear-gradient(135deg, #0077b6, #023e8a);"></div>
+                                    style="background: linear-gradient(135deg, #0077b6, #023e8a);">
+                                </div>
                                 <span class="theme-name">Ocean Blue</span>
                             </button>
                             <button class="theme-card" data-theme="sunset">
                                 <div class="theme-preview"
-                                    style="background: linear-gradient(135deg, #f94144, #90206b);"></div>
+                                    style="background: linear-gradient(135deg, #f94144, #90206b);">
+                                </div>
                                 <span class="theme-name">Sunset Red</span>
                             </button>
                             <button class="theme-card" data-theme="forest">
                                 <div class="theme-preview"
-                                    style="background: linear-gradient(135deg, #2d6a4f, #1b3a2d);"></div>
+                                    style="background: linear-gradient(135deg, #2d6a4f, #1b3a2d);">
+                                </div>
                                 <span class="theme-name">Forest Green</span>
                             </button>
                             <button class="theme-card" data-theme="midnight">
                                 <div class="theme-preview"
-                                    style="background: linear-gradient(135deg, #1a1a2e, #16213e);"></div>
+                                    style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                                </div>
                                 <span class="theme-name">Midnight Dark</span>
                             </button>
                             <button class="theme-card" data-theme="sakura">
                                 <div class="theme-preview"
-                                    style="background: linear-gradient(135deg, #c95792, #6a0572);"></div>
+                                    style="background: linear-gradient(135deg, #c95792, #6a0572);">
+                                </div>
                                 <span class="theme-name">Sakura Pink</span>
                             </button>
                         </div>
@@ -230,7 +242,59 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- TAB: ABOUT US -->
+                <div id="tab-about" class="tab-panel">
+                    <div class="about-area">
+                        <div class="create-icon-wrap">
+                            <div class="create-icon">👥</div>
+                        </div>
+                        <h2 class="section-heading">คณะผู้จัดทำ</h2>
+                        <p class="section-sub">รายชื่อทีมงานผู้พัฒนา Math Quiz Challenge</p>
+
+                        <div class="glass-card about-card">
+                            <div class="team-list">
+                                <div class="team-item">
+                                    <div class="team-rank">⭐</div>
+                                    <div class="team-info">
+                                        <p class="team-name">นายจาตุรงค์ กิจโชคประเสริฐ</p>
+                                        <p class="team-role">ผู้จัดทำหลัก (Creator)</p>
+                                    </div>
+                                </div>
+                                <div class="team-item">
+                                    <div class="team-rank">👤</div>
+                                    <div class="team-info">
+                                        <p class="team-name">นายกรมิษฐ์ อินดา</p>
+                                        <p class="team-role">สมาชิกทีม</p>
+                                    </div>
+                                </div>
+                                <div class="team-item">
+                                    <div class="team-rank">�</div>
+                                    <div class="team-info">
+                                        <p class="team-name">นายนพกิจ สุรินทร์ต๊ะ</p>
+                                        <p class="team-role">สมาชิกทีม</p>
+                                    </div>
+                                </div>
+                                <div class="team-item">
+                                    <div class="team-rank">👤</div>
+                                    <div class="team-info">
+                                        <p class="team-name">นายวุฒิภัทร จ่าหย่อง</p>
+                                        <p class="team-role">สมาชิกทีม</p>
+                                    </div>
+                                </div>
+                                <div class="team-item">
+                                    <div class="team-rank">👤</div>
+                                    <div class="team-info">
+                                        <p class="team-name">นายสุริยะทิตย์ สุริยะวงค์</p>
+                                        <p class="team-role">สมาชิกทีม</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End Tab Content Area -->
         </section>
 
         <!-- ==================== LOBBY SCREEN ==================== -->
@@ -239,6 +303,7 @@
                 <div class="glass-card pin-card">
                     <span class="pin-label">Game PIN:</span>
                     <h2 id="lobby-pin" class="pin-number">----</h2>
+
                 </div>
                 <div id="host-start-area" class="hidden">
                     <button id="btn-start-game" class="btn btn-accent btn-lg pulse-anim">▶ START</button>
