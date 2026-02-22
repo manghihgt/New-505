@@ -620,27 +620,6 @@ body {
     margin-bottom: 5px;
 }
 
-.lobby-qr-wrap {
-    margin-top: 15px;
-    padding: 10px;
-    background: white;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-#lobby-qr {
-    width: 120px;
-    height: 120px;
-}
-
-.qr-hint {
-    color: #333;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
 
 .lobby-center {
     width: 100%;
