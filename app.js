@@ -28,11 +28,16 @@ const QUESTIONS = [
     { q: "กำหนด a₁=5, d=4 จงหาผลบวก 5 พจน์แรก (S₅)", opts: ["55", "60", "65", "70"], ans: 2, formula: "Sₙ = n/2 [2a₁ + (n−1)d]" },
     { q: "ลำดับ 2, 4, 6, ..., 20 มีทั้งหมดกี่พจน์?", opts: ["8", "9", "10", "11"], ans: 2, formula: "n = (aₙ − a₁)/d + 1" },
     { q: "ผลบวก 5 พจน์แรกของลำดับ 5, 10, 15, ... คือ?", opts: ["65", "70", "75", "80"], ans: 2, formula: "Sₙ = n/2 (a₁ + aₙ)" },
-    { q: "กำหนด a₁=100, d=−10 จงหาพจน์ที่ 5 (a₅)", opts: ["50", "60", "70", "80"], ans: 1, formula: "a₅ = a₁ + 4d" }
+    { q: "กำหนด a₁=100, d=−10 จงหาพจน์ที่ 5 (a₅)", opts: ["50", "60", "70", "80"], ans: 1, formula: "a₅ = a₁ + 4d" },
+    { q: "ลำดับเรขาคณิต 3, 6, 12, ... มีอัตราส่วนร่วม (r) เท่าใด?", opts: ["1.5", "2", "3", "4"], ans: 1, formula: "r = a₂ / a₁" },
+    { q: "พจน์ที่ 4 ของลำดับเรขาคณิต 5, 10, 20, ... คืออะไร?", opts: ["30", "40", "50", "60"], ans: 1, formula: "a₄ = a₁ · r³" },
+    { q: "พจน์แรก (a₁) ของลำดับเรขาคณิตที่มี r=3 และ a₂=12 คืออะไร?", opts: ["2", "3", "4", "6"], ans: 2, formula: "a₁ = a₂ / r" }
 ];
 
 const SHAPES = ["▲", "◆", "●", "■"];
 const COLORS = ["opt-red", "opt-blue", "opt-yellow", "opt-green"];
+
+
 
 // --- State ---
 let role = null, roomId = null, playerId = null, nickname = null;
@@ -76,6 +81,16 @@ document.querySelectorAll('.theme-card').forEach(card => {
         }
         localStorage.setItem('mathquiz-theme', theme);
     });
+});
+
+
+
+window.addEventListener('load', () => {
+    const params = new URLSearchParams(window.location.search);
+    const pin = params.get('pin');
+    if (pin) {
+        document.getElementById('input-pin').value = pin;
+    }
 });
 
 // ========================================================

@@ -205,6 +205,7 @@ body {
     letter-spacing: -1px;
 }
 
+
 /* ================== TAB NAVIGATION ================== */
 .tab-nav {
     width: 100%;
@@ -604,6 +605,7 @@ body {
 
 .pin-card {
     padding: 15px 30px;
+    text-align: center;
 }
 
 .pin-label {
@@ -615,6 +617,29 @@ body {
     font-size: 3rem;
     font-weight: 900;
     letter-spacing: 8px;
+    margin-bottom: 5px;
+}
+
+.lobby-qr-wrap {
+    margin-top: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#lobby-qr {
+    width: 120px;
+    height: 120px;
+}
+
+.qr-hint {
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 .lobby-center {
@@ -972,8 +997,67 @@ body {
 }
 
 .host-answer-badge .stat-label {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     opacity: 0.6;
+}
+
+/* ================== ABOUT US ================== */
+.about-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.about-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.team-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.team-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+}
+
+.team-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.team-rank {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.team-role {
+    font-size: 0.85rem;
+    color: var(--text-dim);
 }
 
 .host-q-center {
